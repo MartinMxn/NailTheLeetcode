@@ -13,7 +13,7 @@ public class Rewrite_M_2KeysKeyboard {
     //     return dp[n];
     // }
 
-    //no extra dp
+    //no extra dp space
     //the res is quotient of target number divided by the first factor
     public int minSteps(int n) {
         if(n == 1) return 0;

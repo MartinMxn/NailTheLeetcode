@@ -1,4 +1,4 @@
-class E_984_StringWithoutAAAorBBB {
+class Rewrite_E_984_StringWithoutAAAorBBB {
     public static String strWithout3a3b(int A, int B) {
         StringBuilder sb = new StringBuilder();
         int lena = 0, lenb = 0;

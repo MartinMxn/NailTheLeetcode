@@ -27,7 +27,7 @@ public class Solution {
                     map.put(nei, new UndirectedGraphNode(nei.label));
                     q.add(nei);
                 }       
-                map.get(tmp).neighbors.add(map.get(nei));    //not add(nei)!
+                map.get(tmp).neighbors.add(map.get(nei));    //not add(nei)!!
             }
         }
         

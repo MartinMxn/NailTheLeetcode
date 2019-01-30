@@ -1,3 +1,5 @@
+package Java.Medium;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -41,4 +43,10 @@ class Solution {
             return head;
         }
     }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
 }

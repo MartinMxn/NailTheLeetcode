@@ -1,13 +1,7 @@
+package Java.Medium;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PriorityQueue;
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}
 
 public class OK_M_230_KthSmallestElementinaBST {
     //max heap
@@ -66,4 +60,11 @@ public class OK_M_230_KthSmallestElementinaBST {
     //     }
     //     return res;
     // }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
 }

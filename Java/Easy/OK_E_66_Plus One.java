@@ -1,4 +1,6 @@
-class OK_E_66_Plus One {
+package Java.Easy;
+
+class OK_E_66_PlusOne {
     public int[] plusOne(int[] digits) {
         
 //         boolean allNine = true;

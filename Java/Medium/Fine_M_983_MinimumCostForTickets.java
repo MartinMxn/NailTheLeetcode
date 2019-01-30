@@ -1,3 +1,5 @@
+package Java.Medium;
+
 public class Fine_M_983_MinimumCostForTickets {
     public int mincostTickets(int[] days, int[] costs) {
         boolean[] dayTraveled = new boolean[366];

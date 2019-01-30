@@ -1,3 +1,5 @@
+package Java.Medium;
+
 public class Rewrite_M_2KeysKeyboard {
 
     // public int minSteps(int n) {

@@ -31,3 +31,5 @@ int[] arr = list.stream().mapToInt(Integer::valueOf).toArray();
 s1.compareTo(s2) 
 //compares strings on the basis of Unicode value, If first string is lexicographically greater than second string, it returns positive number (difference of character value). If first string is less than second string lexicographically, it returns negative number and if first string is lexicographically equal to second string, it returns 0.
 
+## Java-List
+1. list.subList(0, k) return k elements in the list

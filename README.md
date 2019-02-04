@@ -24,7 +24,7 @@ int[] arr = list.stream().mapToInt(Integer::valueOf).toArray();
 
 ## Java-Sort
 1. Collections.sort(collectionsName, (a,b)-> ....)
-
+2. Collections.reverse(collectionsName)
 
 ## Java-String
 1. lexicographic/alphabetical/dictionary order

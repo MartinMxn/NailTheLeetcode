@@ -22,3 +22,5 @@ ArrayList<Integer> a = new ArrayList<>(Arrays.asList());
 5.ArrayList -> int
 int[] arr = list.stream().mapToInt(Integer::valueOf).toArray();
 
+## Java-Sort
+Collections.sort(collectionsName, (a,b)-> ....)

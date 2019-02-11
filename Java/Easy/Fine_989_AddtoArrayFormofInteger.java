@@ -1,4 +1,4 @@
-class Rewrite_989_AddtoArrayFormofInteger {
+class Fine_989_AddtoArrayFormofInteger {
     public List<Integer> addToArrayForm(int[] A, int K) {
         List<Integer> list = new ArrayList<>();
         for(int i = A.length - 1; i >= 0; i--) {

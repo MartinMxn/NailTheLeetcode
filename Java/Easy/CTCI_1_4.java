@@ -1,3 +1,7 @@
+/*
+Given a string, check if it's a permutation of palinfrome
+*/
+
 import java.util.HashMap;
 
 class CTCI_1_4 {

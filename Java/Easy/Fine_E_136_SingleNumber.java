@@ -20,6 +20,7 @@ class Solution {
         // ^ make the res to 0 when meet the same number
         // and 0 ^ number = number
         // !! a^b^a = (a^a)^b = b 
+        // ^ could be seen as non carry add operation!!
         int res = 0;
         for(int i : nums) {res ^= i; System.out.println(res);}  
         return res;

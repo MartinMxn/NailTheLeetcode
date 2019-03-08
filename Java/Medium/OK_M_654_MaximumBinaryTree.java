@@ -15,13 +15,7 @@ class Solution {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         if(nums == null || nums.length == 0) return null;
         //find the largest
-        int index = -1, largest = Integer.MIN_VALUE;
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[i] >= largest) {
-                index = i;
-                largest = nums[i];
-            }
-        }
+        int index = maxIndex(nums, 0, nums.length - 1);
         TreeNode root = new TreeNode(nums[index]);
         root.left = findLargest(nums, 0, index - 1);
         root.right = findLargest(nums, index + 1, nums.length - 1);
@@ -31,19 +25,25 @@ class Solution {
     
     private TreeNode findLargest(int[] nums, int left, int right) {
         if(left <= right) {
-            int index = -1, largest = Integer.MIN_VALUE;
-            for(int i = left; i <= right; i++) {
-                if(nums[i] >= largest) {
-                    index = i;
-                    largest = nums[i];
-                }
-            }
-            if(index == -1) return null;
+            int index = maxIndex(nums, left, right);
             TreeNode cur = new TreeNode(nums[index]);
             cur.left = findLargest(nums, left, index - 1);
             cur.right = findLargest(nums, index + 1, right);
             return cur;
         }
         return null;
+    }
+    
+    private int maxIndex(int[] nums, int left, int right) {
+        //all initially set to right, so the left < righ would fail
+        int index = right;
+        int largest = nums[right];
+        for(int i = left; i < right; i++) {
+            if(nums[i] > largest) {
+                index = i;
+                largest = nums[i];
+            }
+        }
+        return index;
     }
 }

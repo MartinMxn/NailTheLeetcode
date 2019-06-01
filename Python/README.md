@@ -1,3 +1,5 @@
+# Skilllllllll in python
+
 ## For loop
 ```
 list = [1,2,3]
@@ -12,4 +14,13 @@ S = "some string"
 ```
 .append() # at last
 .pop() # pop last and get
+```
+
+## Sort
+```
+word = ["bca","a","b","ba",,"bda","bdca"]
+word.sort(key = len)
+
+for i in sorted(word, key = len):
+  ...
 ```

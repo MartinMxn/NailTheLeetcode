@@ -8,6 +8,10 @@ list = [1,2,3]
 S = "some string"
 2. for c in S:
   ...
+3. for i, c in enumerate(dict/list/tuple)
+enumerate() in python:
+  like entry in Java
+enumerate(sequence, [start=0])
 ```
 
 ## List

@@ -81,6 +81,12 @@ Continue execution until the next line in the current function is reached or it 
 [(1, 4), (2, 5), (3, 6)]
 ```
 
+### index()
+```
+Return the smallest index / the first occurrence of x in the array.
+Otherwise, return a ValueError.
+```
+
 ## yield 表达式 ??
 把一个函数变成一个生成器generator
 用来延迟，在需要时候再产生结果

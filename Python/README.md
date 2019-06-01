@@ -12,6 +12,9 @@ S = "some string"
 enumerate() in python:
   like entry in Java
 enumerate(sequence, [start=0])
+4. book = {c : i for i, c in enumerate(order)}
+list/dict/tuple comprehision
+create a dict and with compression in one line
 ```
 
 ## List
@@ -61,3 +64,23 @@ delattr(object, name)
 The arguments are an object and a string.
 # delattr(x, 'foobar') is equivalent to del x.foobar.
 ```
+### next()/n() ??
+```
+Continue execution until the next line in the current function is reached or it returns.
+```
+
+### zip()
+```
+将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。
+>>>a = [1,2,3]
+>>> b = [4,5,6]
+>>> c = [4,5,6,7,8]
+>>> zip(a,b)     # 打包为元组的列表
+[(1, 4), (2, 5), (3, 6)]
+>>> zip(a,c)              # 元素个数与最短的列表一致
+[(1, 4), (2, 5), (3, 6)]
+```
+
+## yield 表达式 ??
+把一个函数变成一个生成器generator
+用来延迟，在需要时候再产生结果

@@ -23,6 +23,36 @@ create a dict and with compression in one line
 .pop() # pop last and get
 ```
 
+## Set
+返回一个新的 set 或 frozenset 对象，其元素来自于 iterable。 集合的元素必须为 **hashable。** ?  
+无序，不重复序列
+```
+Creation: 
+1.set1 = {"1", "2"}
+2.convert from list 
+  list1 = ["1", "2", "2", "1"]
+  set2 = set(list1)
+3.s = set()
+
+String in set
+>>> a = set("boy")
+>>> a
+{'y', 'o', 'b'}
+
+len(s)
+x in s / x not in s
+add() 
+remove() if not in, return key error
+discard() if in, remove it
+pop() random pop a element
+clear()
+isdisjoint(other s)
+issubset(other s ) : s < other / s <= other
+issuperset : s > other / s >= other
+copy() 浅拷贝
+
+```
+
 ## Sort
 ```
 word = ["bca","a","b","ba",,"bda","bdca"]

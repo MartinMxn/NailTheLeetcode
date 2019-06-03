@@ -21,6 +21,11 @@ create a dict and with compression in one line
 ```
 .append() # at last
 .pop() # pop last and get
+
+index()
+Return the smallest index / the first occurrence of x in the array.
+Otherwise, return a ValueError.
+
 ```
 
 ## Set
@@ -60,6 +65,52 @@ word.sort(key = len)
 
 for i in sorted(word, key = len):
   ...
+```
+
+## heapq
+```
+heapq.heappush(heap, item)
+    - Push the value item onto the heap, maintaining the heap invariant.
+heapq.heappop(heap)
+    - Pop and return the smallest item from the heap, maintaining the heap invariant.
+    If the heap is empty, IndexError is raised. 
+heap[0]
+    To access the smallest item without popping it.
+    
+heapq有两种方式创建堆， 
+1 是使用一个空列表，然后使用heapq.heappush()函数把值加入堆中
+nums = [2, 3, 5, 1, 54, 23, 132]
+heap = []
+for num in nums:
+    heapq.heappush(heap, num)  # 加入堆
+    
+2 使用heap.heapify(list)转换列表成为堆结构
+nums = [2, 3, 5, 1, 54, 23, 132]
+heapq.heapify(nums)
+
+heapq.nlargest() / heapq.nsmallest() 获取堆中n个最大或最小的值
+Equivalent to: sorted(iterable, key=key, reverse=True)[:n]
+>>> nums = [1, 3, 4, 5, 2]
+>>> import heapq
+>>> print(heapq.nlargest(2, nums))
+[5, 4]
+>>> print(heapq.nsmallest(2, nums))
+[1, 2]
+
+Merge two heap
+num1 = [32, 3, 5, 34, 54, 23, 132]
+num2 = [23, 2, 12, 656, 324, 23, 54]
+num1 = sorted(num1)
+num2 = sorted(num2)
+
+res = heapq.merge(num1, num2)
+
+heapq.heaprepalce()
+删除堆中最小元素并加入一个元素
+nums = [1, 2, 4, 5, 3]
+heapq.heapify(nums)
+heapq.heapreplace(nums, 23)
+# out: [2, 3, 4, 5, 23]
 ```
 
 ## Built-in Functions
@@ -109,12 +160,6 @@ Continue execution until the next line in the current function is reached or it 
 [(1, 4), (2, 5), (3, 6)]
 >>> zip(a,c)              # 元素个数与最短的列表一致
 [(1, 4), (2, 5), (3, 6)]
-```
-
-### index()
-```
-Return the smallest index / the first occurrence of x in the array.
-Otherwise, return a ValueError.
 ```
 
 ## yield 表达式 ??

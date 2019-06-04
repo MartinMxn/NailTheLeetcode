@@ -122,6 +122,11 @@ heapq.heapreplace(nums, 23)
 # out: [2, 3, 4, 5, 23]
 ```
 
+### max heap in python
+heapq.heappush(heap_name, -num)
+negative of number in min heap is max heap
+
+
 ## Built-in Functions
 any(iterable) 
 ```

@@ -15,6 +15,9 @@ enumerate(sequence, [start=0])
 4. book = {c : i for i, c in enumerate(order)}
 list/dict/tuple comprehision
 create a dict and with compression in one line
+5. Reverse loop
+for i in range(len(arr) - 2, -1, -1):
+  ...
 ```
 
 ## List

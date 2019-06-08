@@ -147,6 +147,58 @@ def all(iterable):
             return False
     return True
 ```
+### Counter类（计数器）
+用于追踪值的出现次数
+Counter类继承dict类，所以它能使用dict类里面的方法 
+```
+import collections
+obj = collections.Counter('aabbccc')
+print(obj)
+#输出：Counter({'c': 3, 'a': 2, 'b': 2})
+```
+#### most_common(指定一个参数n，列出前n个元素，不指定参数，则列出所有)
+```
+import collections
+obj = collections.Counter('aabbbcccc')
+print(obj.most_common(2))
+#输出：[('c', 4), ('b', 3)]
+```
+
+#### items()
+```
+import collections
+obj = collections.Counter('aabbbcccc')
+print(obj.items())
+
+for k,v in obj.items():
+    print(k,v)
+
+#输出：dict_items([('b', 3), ('c', 4), ('a', 2)])
+#     b 3
+#     c 4
+#     a 2
+```
+
+#### update()/subtract()
+```
+update(增加元素)
+
+import collections
+obj = collections.Counter(['11','22'])
+obj.update(['22','55'])
+print(obj)
+#输出：Counter({'22': 2, '11': 1, '55': 1})
+
+subtract(原来的元素减去新传入的元素)
+
+import collections
+obj = collections.Counter(['11','22','33'])
+obj.subtract(['22','55'])
+print(obj)
+
+#输出：Counter({'11': 1, '33': 1, '22': 0, '55': -1})
+```
+
 ### getattr(object, name, [default])
 ```
 Return the value of the named attribute of object. name must be a string. 

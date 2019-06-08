@@ -20,6 +20,16 @@ for i in range(len(arr) - 2, -1, -1):
   ...
 ```
 
+## String
+#### find(str, beg=0, end=len(string))) / rfind(...)
+```
+find str -- 指定检索的字符串. beg -- 开始索引，默认为0. end -- 结束索引，默认为字符串的长度。
+如果子序列不存在返回-1
+
+rfind() 从右向左寻找子序列的位置
+index()/rindex() same as find, but 如果子序列不存在报错，所以一般我们用find()
+```
+
 ## List
 ```
 .append() # at last

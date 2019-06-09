@@ -244,3 +244,17 @@ Continue execution until the next line in the current function is reached or it 
 ## yield 表达式 ??
 把一个函数变成一个生成器generator
 用来延迟，在需要时候再产生结果
+
+## Trie Tree
+```
+class Trie:
+    def __init__(self, words):
+        self.trie = {}
+        for word in words:
+            cur = self.trie
+            for c in words:
+                if c not in cur:
+                    cur[c] = {}
+                cur = cur[c]
+            trie["end"] = True
+```

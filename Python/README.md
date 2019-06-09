@@ -258,3 +258,64 @@ class Trie:
                 cur = cur[c]
             trie["end"] = True
 ```
+
+## itertools
+### permutation
+itertools.permutations(iterable, r=None)
+r为permutation每一个结果的长度
+```
+from itertools import *
+for j in permutations([1,2,3]):
+        print(j)
+    '''
+    (1, 2, 3)
+    (1, 3, 2)
+    (2, 1, 3)
+    (2, 3, 1)
+    (3, 1, 2)
+    (3, 2, 1)
+    '''
+    
+# permutations('ABCD', 2)
+# AB AC AD BA BC BD CA CB CD DA DB DC
+```
+### combinations()
+permutations(iterable, r) r必须
+r-length tuples, in sorted order, no repeated elements
+```
+>>> for j in combinations([1,2,3,4], 2):
+...     print(j)
+... 
+(1, 2)
+(1, 3)
+(1, 4)
+(2, 3)
+(2, 4)
+(3, 4)
+
+>>> for j in combinations([1,2,3,4], 3):
+...     print(j)
+... 
+(1, 2, 3)
+(1, 2, 4)
+(1, 3, 4)
+(2, 3, 4)
+```
+### product
+返回A和B中的元素组成的笛卡尔积的元组
+```
+>>> l1 = [1,2,3]
+>>> l2 = [2,3,4]
+>>> for i in product(l1, l2):
+...     print(i)
+... 
+(1, 2)
+(1, 3)
+(1, 4)
+(2, 2)
+(2, 3)
+(2, 4)
+(3, 2)
+(3, 3)
+(3, 4)
+```

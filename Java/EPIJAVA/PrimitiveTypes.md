@@ -90,22 +90,46 @@ public static short parity(long x){
 // x & ~(x - 1) extracts the lowest set bit of x
 ```
 
-## COMPUTE X^y
+## COMPUTE x^y
 ```
 public static double power(double x, int y){ 
-  double result = 1.0;
-  long power = y;
-  if(y< 0) {
-    power = -power;
-    x = 1.8 / x;
+  double res = 1.0;
+  if (y < 0) {
+    y = -y;
+    x = 1.0 / x;
   }
-  while (power != 0) {
-    if ((power & 1) != 0) {
-      result *= x;
+  
+  while (y != 0) {
+    if ((y & 1) != 0) { // !!
+      res *= x;
     }
-    x *= x;
-    power >»= 1;
+    x *= x;  //!! 4->100
+    y >>>= 1;
   }
-  return result;
+  return res;
+}
+```
+
+## Swap bit i and j
+```
+public static long swapBits(long x, int i, int j) {
+  if ( ((x >>> i) & 1) != ((x >>> j) & 1) ) {
+    long mask = 1L << i | 1L << j
+    x ^= mask
+  }
+  return x
+}
+```
+
+## Reverse digit
+```
+public static long reverse(int x){
+  long res = 0;
+  int absX = Math.abs(x);
+  while (absX != 0) {
+    res = res * 10 + absX % 10;
+    absX /= 10;
+  }
+  return x < 0 ? -res : res;
 }
 ```

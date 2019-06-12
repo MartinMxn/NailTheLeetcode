@@ -1,0 +1,16 @@
+contiguous block of memory
+
+# Trick in Array:
+Use the array itself to reduce space complexity to 0(1). [Problem 6.1]
+write values from the back. [Problem 6.2]
+Instead of deleting an entry consider overwriting it. [Problem 6.5]
+Be comfortable with writing code that operates on subarrays. [Problem 6.10]
+#### 
+Don't forget the length of an array is given by the length field,  
+unlike Collections, which uses the size() method, and String, which use the length() method.
+#### 
+Remember APIs: asListO(moreonthislater),binarySearch(A, 641),copyOf(A),  
+copyOfRange(A, 1,5), equals(A, B), fill(A, 42), find(A, 28), sort(A), sort(A,cmp), toStringO.
+
+### Bot hArrays and Collections have binarySearch() and sort() methods
+## Read the review of List, ArrayList, and Collections

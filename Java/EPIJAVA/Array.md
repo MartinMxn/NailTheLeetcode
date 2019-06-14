@@ -14,3 +14,23 @@ copyOfRange(A, 1,5), equals(A, B), fill(A, 42), find(A, 28), sort(A), sort(A,cmp
 
 ### Bot hArrays and Collections have binarySearch() and sort() methods
 ## Read the review of List, ArrayList, and Collections
+
+
+## 6.2 Add one to array
+```
+public static List<Integer> plusOne(List<Integer> arr) {
+    int n = arr.size();
+    int carry = 0;
+    arr.set(n - 1, arr.get(n - 1) + 1);
+    for (int i = n - 1; i >= 0; i--) {
+        carry += arr.get(i);
+        arr.set(i, carry % 10);
+        carry /= 10;
+    }
+    if (carry > 0) {
+        arr.set(0, 0);
+        arr.add(0, 1);
+    }
+    return arr;
+}
+```

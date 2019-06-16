@@ -49,3 +49,20 @@ A floating-point positive infinity. (For negative infinity, use -math.inf.) Equi
   .math.nan
 A floating-point “not a number” (NaN) value. Equivalent to the output of float('nan').
 ```
+
+## statistics
+```
+mean()            "average"(Arithmetic mean) of data.
+
+harmonic_mean()   Harmonic mean of data.
+
+median()          Median (middle value) of data.
+
+median_low()      Low median of data.
+
+median_high()     High median of data.
+
+median_grouped()   Median, or 50th percentile, of grouped data.
+
+mode()            Mode (most common value) of discrete data.
+```

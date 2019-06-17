@@ -32,13 +32,28 @@ index()/rindex() same as find, but 如果子序列不存在报错，所以一般
 
 ## List
 ```
-.append() # at last
-.pop() # pop last and get
+.append() # at last, equals to a[len(a):] = [x]
+.pop(x) # pop last and get / any index
+.extend(iterable) # 在末尾添加扩展可迭代对象 a[len(a):] = iterable
+.remove() # find and delete, if not, throw ValueError
+.clear()
+.index(x[, start[, end]]) # return index, could have start and end, but still return from 0
+.count(x)
+.sort()
+.reverse()
+.copy()
 
-index()
-Return the smallest index / the first occurrence of x in the array.
-Otherwise, return a ValueError.
+convert to queue
+collections.deque(list) convert to deque
+```
 
+## deque
+```
+append()
+appendleft()
+clear() / count(x) 计算x出现次数 / copy()
+pop()
+popleft()
 ```
 
 ## Set

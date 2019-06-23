@@ -45,6 +45,12 @@ index()/rindex() same as find, but 如果子序列不存在报错，所以一般
 
 convert to queue
 collections.deque(list) convert to deque
+
+last index
+list[-1]
+
+copy
+a = b[:]
 ```
 
 ## deque

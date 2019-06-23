@@ -67,7 +67,21 @@ popleft()
 无序，不重复序列
 ```
 Creation: 
-1.set1 = {"1", "2"}
+1.set1 = {"1", "2"} s = {(1,2),(2,3)}
+不能用s = {}创建空set因为创建的是字典
+1.1 用list创建b=set(['y', 'b', 'o','o'])
+>>> b = set(['a', 'b'])
+>>> b
+{'b', 'a'}
+1.2 利用dict创建，将会使用dict中的key值作为set的值
+>>> c = set({'a1':'a', 'b2':'b'})
+>>> c
+{'a1', 'b2'}
+1.3 使用tuple创建
+>>> e={('k1', 'k2'), ('k1', 'k2')}
+>>> e
+{('k1', 'k2')}
+
 2.convert from list 
   list1 = ["1", "2", "2", "1"]
   set2 = set(list1)
@@ -77,6 +91,15 @@ String in set
 >>> a = set("boy")
 >>> a
 {'y', 'o', 'b'}
+
+更新（增加）
+update
+se = {11, 22, 33}
+be = {22,44,55}
+se.update(be)  # 把se和be合并，得出的值覆盖se
+print(se) {33, 22, 55, 11, 44}
+se.update([66, 77])  # 可增加迭代项
+print(se) {33, 66, 22, 55, 11, 44, 77}
 
 len(s)
 x in s / x not in s

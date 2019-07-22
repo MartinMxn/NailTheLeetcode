@@ -55,6 +55,7 @@ a = b[:]
 
 ## deque
 ```
+from collections import deque
 append()
 appendleft()
 clear() / count(x) 计算x出现次数 / copy()

@@ -30,14 +30,6 @@ rfind() 从右向左寻找子序列的位置
 index()/rindex() same as find, but 如果子序列不存在报错，所以一般我们用find()
 ```
 
-## Sort
-```
-item = [(1, 'B'), (1, 'A'), (2, 'A'), (0, 'B'), (0, 'a')]
-sort_items = sorted(items, key=lambda x: x.lower() if isinstance(x, str) else x)
-
-for tuple, python will compare the first element in each tuple and then second...
-```
-
 ## List
 ```
 .append() # at last, equals to a[len(a):] = [x]
@@ -124,15 +116,6 @@ copy() 浅拷贝
 
 ```
 
-## Sort
-```
-word = ["bca","a","b","ba",,"bda","bdca"]
-word.sort(key = len)
-
-for i in sorted(word, key = len):
-  ...
-```
-
 ## heapq
 ```
 heappush(heap, item)：将 item 元素加入堆。
@@ -186,6 +169,34 @@ nums = [1, 2, 4, 5, 3]
 heapq.heapify(nums)
 heapq.heapreplace(nums, 23)
 # out: [2, 3, 4, 5, 23]
+```
+
+## Sort
+```
+word = ["bca","a","b","ba",,"bda","bdca"]
+word.sort(key = len)
+
+for i in sorted(word, key = len):
+  ...
+
+for tuple, python will compare the first element in each tuple and then second...
+but in this case:
+item = [(1, 'B'), (1, 'A'), (2, 'A'), (0, 'B'), (0, 'a')]
+# not works
+sort_items = sorted(items, key=lambda x: x.lower() if isinstance(x, str) else x)
+
+# not works either
+def get_key(x):
+  print(type(x)) # tuple
+  return x.lower() if isinstance(x, str) else x
+sort_items = sorted(items, key=get_key)
+
+so should be like
+def get_key(x):
+  return (x[0], x[1].lower())
+or
+sort_items = sorted(items, key=lambda x: (x[0], x[1].lower()))
+
 ```
 
 ### max heap in python

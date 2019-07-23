@@ -30,6 +30,14 @@ rfind() 从右向左寻找子序列的位置
 index()/rindex() same as find, but 如果子序列不存在报错，所以一般我们用find()
 ```
 
+## Sort
+```
+item = [(1, 'B'), (1, 'A'), (2, 'A'), (0, 'B'), (0, 'a')]
+sort_items = sorted(items, key=lambda x: x.lower() if isinstance(x, str) else x)
+
+for tuple, python will compare the first element in each tuple and then second...
+```
+
 ## List
 ```
 .append() # at last, equals to a[len(a):] = [x]

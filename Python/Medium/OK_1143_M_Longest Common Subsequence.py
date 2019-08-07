@@ -50,14 +50,14 @@ class Solution:
             text1, text2 = text2, text1
         n, m = len(text1), len(text2)
         pre_dp = [0] * (n + 1)
-        cur_dp = [0] * (n + 1)
         for j in range(1, m + 1):
+            cur_dp = [0] * (n + 1) # init each cur row
             for i in range(1, n + 1):
                 if text1[i - 1] == text2[j - 1]:
                     cur_dp[i] = 1 + pre_dp[i - 1]
                 else:
                     cur_dp[i] = max(cur_dp[i - 1], pre_dp[i])
-            pre_dp, cur_dp = cur_dp, pre_dp # assign it to previous one
+            pre_dp = cur_dp # assign it to previous one
             
         return pre_dp[-1]
         

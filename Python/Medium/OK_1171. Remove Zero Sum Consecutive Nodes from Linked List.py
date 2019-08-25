@@ -6,21 +6,18 @@
 
 class Solution:
     def removeZeroSumSublists(self, head: ListNode) -> ListNode:
-        dummy = ListNode(0)
+        cur = dummy = ListNode(0)
         dummy.next = head
-        prefix = 0
         seen = collections.OrderedDict()
-        cur = dummy
+        prefix = 0
         
         while cur:
             prefix += cur.val
-            node = seen.get(prefix, cur) # get the seen[prefix], if not just cur
-            print(prefix)
-            while prefix in seen:
-                print('pop', seen.popitem()[0])
-            seen[prefix] = node
+            node = seen.get(prefix, cur) # the node we get here is actually the node before the first node we need to remove
+            while prefix in seen: # pop the nodes between
+                seen.popitem()
+            seen[prefix] = node # update map, the node here make sure get the first node appeared
             cur = cur.next
             node.next = cur
-        
+            
         return dummy.next
-        

@@ -30,6 +30,48 @@ rfind() 从右向左寻找子序列的位置
 index()/rindex() same as find, but 如果子序列不存在报错，所以一般我们用find()
 ```
 
+## map
+整体对数组元素操作
+```
+negative:
+a = [1,2,3]
+list(map(lambda x:-x, a))
+[-1, -2, -3]
+
+convert
+a = ['1', '2', '3']
+map(int, a)
+[1, 2, 3]
+```
+
+## filter
+```
+>>> l = [1,2,3,4]
+>>> list(filter(lambda x: x % 2 == 0, l))
+[2, 4]
+```
+
+## zip/zip(*)
+```
+a = [1,2,3]
+b = ['a', 'b', 'c']
+>>> for i in zip(a,b):
+...     print(i)
+(1, 'a')
+(2, 'b')
+(3, 'c')
+make it a dict
+>>> dict(zip(a, b))
+{1: 'a', 2: 'b', 3: 'c'}
+dict.item() / for key in dict
+
+* to decode
+>>> for i in zip(*zip(a,b)):
+      print(i)
+(1, 2, 3)
+('a', 'b', 'c')
+```
+
 ## List
 ```
 .append() # at last, equals to a[len(a):] = [x]
@@ -293,18 +335,6 @@ The arguments are an object and a string.
 Continue execution until the next line in the current function is reached or it returns.
 ```
 
-### zip()
-```
-将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。
->>>a = [1,2,3]
->>> b = [4,5,6]
->>> c = [4,5,6,7,8]
->>> zip(a,b)     # 打包为元组的列表
-[(1, 4), (2, 5), (3, 6)]
->>> zip(a,c)              # 元素个数与最短的列表一致
-[(1, 4), (2, 5), (3, 6)]
-```
-
 ## yield 表达式 ??
 把一个函数变成一个生成器generator
 用来延迟，在需要时候再产生结果
@@ -382,4 +412,20 @@ r-length tuples, in sorted order, no repeated elements
 (3, 2)
 (3, 3)
 (3, 4)
+```
+### accumulate
+返回可迭代序列的累加值
+数字类型相加，字符类型则附加
+```
+a = 'abc'
+b = itertools.accumulate(a)
+print(list(b))
+a ab abc
+应用: 寻找子序列
+>>> def sub(s):
+       if len(s) == 1:
+          return [s]
+       else:
+          return list(itertools.accumulate(s)) + sub(s[1:])
+a ab abc b bc c
 ```

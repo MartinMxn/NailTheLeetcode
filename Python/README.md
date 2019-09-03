@@ -241,6 +241,19 @@ sort_items = sorted(items, key=lambda x: (x[0], x[1].lower()))
 
 ```
 
+## bisect
+binary search implement
+```
+bisect.bisect_left(a, x, lo=0, hi=len(a))
+If x is already present in a, the insertion point will be before (to the left of) any existing entries
+
+bisect and bisect_right(a, x, lo=0, hi=len(a))
+If x is already present in a, insert after the entries
+
+insort_left same as bisect_left but also insert the x
+insort_right same thing
+```
+
 ### max heap in python
 heapq.heappush(heap_name, -num)
 negative of number in min heap is max heap

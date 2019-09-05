@@ -214,6 +214,10 @@ heapq.heapreplace(nums, 23)
 ```
 
 ## Sort
+implement by timsort  
+最好情况为O(n)，平均情况为O(nlogn)，最差情况为O(nlogn)；空间复杂度为O(n)。  
+derive from merge sort and insertion sort  
+code is more than 1200 lines of code  
 ```
 word = ["bca","a","b","ba",,"bda","bdca"]
 word.sort(key = len)

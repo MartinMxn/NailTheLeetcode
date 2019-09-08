@@ -20,6 +20,14 @@ for i in range(len(arr) - 2, -1, -1):
   ...
 ```
 
+## dict
+dict.setdefault(a, b=None) 
+```
+set the default value if it doesn't exist  
+if exist, won't replace it  
+will always return the value of a
+```
+
 ## String
 #### find(str, beg=0, end=len(string))) / rfind(...)
 ```

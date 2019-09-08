@@ -248,14 +248,61 @@ sort_items = sorted(items, key=lambda x: (x[0], x[1].lower()))
 ## bisect
 binary search implement
 ```
-bisect.bisect_left(a, x, lo=0, hi=len(a))
-If x is already present in a, the insertion point will be before (to the left of) any existing entries
+"""
+prerequisite: all increasing order
 
-bisect and bisect_right(a, x, lo=0, hi=len(a))
-If x is already present in a, insert after the entries
+bisect.bisect_left: find the left most position, if duplicate
+       bisect = bisect.bisect_right find the right most position
 
-insort_left same as bisect_left but also insert the x
-insort_right same thing
+insort, insort_left, insort_right same idea
+insort return None
+
+implement by C
+"""
+import bisect
+
+
+def bisect_right_f(a, x, lo=0, hi=None):
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if x < a[mid]:
+            hi = mid
+        else:
+            lo = mid + 1
+
+    return lo
+
+
+print(bisect.bisect_right([1, 1, 2, 2], 2)) # 4
+print(bisect_right_f([1, 1, 2, 2], 2)) # 4
+
+
+def bisect_left_f(a, x, lo=0, hi=None):
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if x > a[mid]:
+            lo = mid + 1
+        else:
+            hi = mid
+
+    return lo
+
+
+print(bisect.bisect_left([1, 1, 2, 2], 2)) # 2
+print(bisect_left_f([1, 1, 2, 2], 2)) # 2
+
+a = [1, 1, 2, 2]
+print(bisect.insort_right(a, 2)) # [1, 1, 2, 2, 2] last 2 is new 2
 ```
 
 ### max heap in python

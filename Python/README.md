@@ -253,6 +253,66 @@ sort_items = sorted(items, key=lambda x: (x[0], x[1].lower()))
 
 ```
 
+## global / nonlocal
+python引用变量的顺序： 当前作用域局部变量->外层作用域变量->当前模块中的全局变量->python内置变量。  
+global关键字用来在函数或其他局部作用域中使用全局变量.  
+但是如果不修改全局变量也可以不使用global关键字  
+```
+gcount = 0
+
+def global_test():
+    print (gcount) # is ok
+global_test()
+
+def global_test():
+    gcount += 1
+    print (gcount) # UnboundLocalError: local variable 'g' referenced before assignment
+global_test()
+
+def global_test():
+    global gcount
+    gcount += 1
+    print (gcount) # fine
+global_test()
+```
+nonlocal->使用外层(非全局)变量
+```
+def global_test():
+    nonlocal gcount
+    gcount += 1
+    print (gcount) # fine
+global_test()
+```
+compare case:
+```
+def scope_test():
+    def do_local():
+        spam = "local spam" 
+    def do_nonlocal():
+        nonlocal  spam        #使用外层的spam变量
+        spam = "nonlocal spam"
+    def do_global():
+        global spam
+        spam = "global spam" # change the global spam, the spam in scope_test func will not be changed
+    spam = "test spam"
+    do_local()
+    print("After local assignmane:", spam)
+    do_nonlocal()
+    print("After nonlocal assignment:",spam)
+    do_global()
+    print("After global assignment:",spam)
+
+scope_test()
+print("In global scope:",spam)
+
+
+outputs: 
+After local assignmane: test spam
+After nonlocal assignment: nonlocal spam
+After global assignment: nonlocal spam
+In global scope: global spam
+```
+
 ## bisect
 binary search implement
 ```

@@ -18,6 +18,7 @@ WHERE year(OrderDate) = 2007 AND month(OrderDate) NOT IN
 ORDER BY Month;
 
 --self
+
 WITH tmp AS (
 	SELECT sh.SalesOrderID, MONTH(OrderDate) as [Month]
 	FROM Sales.SalesOrderHeader sh

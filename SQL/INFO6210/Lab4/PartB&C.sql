@@ -34,3 +34,45 @@ Stuff((Select ', ' + rtrim(cast(ProductId as char))
        FOR XML PATH('')) , 1, 2, '') as Products
 From Sales.SalesOrderHeader h
 Order by h.SalesOrderID
+
+				
+--Part C
+--self
+WITH Parts AS
+(
+	SELECT 
+		b.ProductAssemblyID,
+		b.ComponentID,
+		b.PerAssemblyQty,
+		b.EndDate,
+		0 AS ComponentLevel
+	FROM Production.BillOfMaterials AS b
+	WHERE b.ProductAssemblyID = 992 AND b.EndDate IS NULL
+	UNION ALL
+	SELECT 
+		bom.ProductAssemblyID, 
+		bom.ComponentID, 
+		p.PerAssemblyQty,
+		bom.EndDate,
+		ComponentLevel + 1
+	FROM Production.BillOfMaterials AS bom
+	INNER JOIN Parts AS p
+	ON bom.ProductAssemblyID = p.ComponentID AND bom.EndDate IS NULL
+),
+Temp AS(
+	SELECT DISTINCT --should not have DISTINCT here
+		p.ComponentID,
+		p.ComponentLevel,
+		pr.ListPrice,
+		RANK() OVER (PARTITION BY p.ComponentLevel ORDER BY pr.ListPrice DESC) AS TopForEachLevel
+	FROM Parts AS p
+	LEFT JOIN Production.Product AS pr
+	ON p.ComponentID = pr.ProductID
+)
+SELECT
+	ComponentLevel,
+	ComponentID,
+	ListPrice
+FROM Temp
+WHERE TopForEachLevel=1
+ORDER BY ComponentLevel

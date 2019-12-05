@@ -1,6 +1,12 @@
 class Solution:
     """
     classic dp, dp[i][j] is the i, j point as bottom right point of square
+    
+    current status can be come from dp[i-1][j], dp[i-1][j-1], dp[i][j-1]
+    because dp[i - 1][j] take care of the rectangle which bottom right is i - 1,j, 
+    dp[i-1][j-1] and dp[i][j-1] is same idea
+    if any of them is smaller, then the count only add 1 based on the smallest one
+
     dp[i][j] = min(dp[i-1][j], dp[i-1][j-1], dp[i][j-1]) + 1
     """
     def countSquares(self, matrix: List[List[int]]) -> int:

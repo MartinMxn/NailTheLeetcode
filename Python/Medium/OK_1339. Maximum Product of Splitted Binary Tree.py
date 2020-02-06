@@ -7,14 +7,17 @@
 
 class Solution:
     def maxProduct(self, root: TreeNode) -> int:
-        # 1. compute every node's sum and find the largest one
+        # find max sum and try all sub_sum possible
+        
         sums = []
         
         def dfs(node):
-            if not node: return 0
+            if not node:
+                return 0
             cur_sum = node.val + dfs(node.left) + dfs(node.right)
             sums.append(cur_sum)
             return cur_sum
-        
+    
         total = dfs(root)
-        return max(x * (total - x)for x in sums) % (10**9 + 7)
+        return max(s * (total - s) for s in sums) % (10 ** 9 + 7)
+            

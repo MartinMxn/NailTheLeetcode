@@ -43,25 +43,26 @@ class Solution:
         if we meet decrease, we could just pop and calculate the higher height, 
         the left stack are all increase, and calculate them at the end
         """
-        stack = [-1]
-        res = 0
-        for i, h in enumerate(heights):
-            while stack[-1] != -1 and h < heights[stack[-1]]:
+        def largestRectangleArea(self, heights: List[int]) -> int:
+            # monolithic stack
+            # always remember the increase heights before idx
+            # stack store the idx, not the value
+            stack = [-1]
+            res = 0
+            for i, h in enumerate(heights):
+                while stack[-1] != -1 and h < heights[stack[-1]]:
+                    prev_i = stack.pop()
+                    prev_h = heights[prev_i]  # prev_h is always smaller than previous pop heights, so could use prev_h as max height
+                    # like 5,6,2 when at 2, calculate 6, then 5, then 2 outside of for loop
+                    width = i - 1 - stack[-1]
+                    res = max(res, width * prev_h)
+
+                stack.append(i)
+            print(stack)
+            while stack[-1] != -1:
                 prev_i = stack.pop()
                 prev_h = heights[prev_i]
-                width = i - 1 - stack[-1] # right side is the index before cur i
-                # in this while loop, we could know the prev_i to the cur i, all height are heigher thant prev_h
-                # so the width could be i - 1 - stack[-1]
+                width = len(heights) - stack[-1] - 1 # dif with for loop, stack[-1] is the prev idx after pop
                 res = max(res, width * prev_h)
-                
-            stack.append(i)
-        
-        # left stack are all increse height's index
-        while stack[-1] != -1:
-            prev_i = stack.pop()
-            prev_h = heights[prev_i]
-            width = len(heights) - stack[-1] - 1
-            res = max(res, width * prev_h)
-            
-        return res
-        
+
+            return res
